@@ -1,10 +1,6 @@
 import requests
 import json
-
-# Define the API endpoint
 API_URL = "http://localhost:3000/api/predict"
-
-# Define the payload (data to send)
 payload = {
     "api_key": "GF5DI92953LI10M",
     "text": "Продаю новую страйкбольную винтовку ASG и тактический жилет. В комплекте магазин и ремень. Состояние идеальное.",
@@ -14,13 +10,9 @@ payload = {
     ]
 }
 
-# Send POST request to the API
 try:
     response = requests.post(API_URL, json=payload)
-    
-    # Check if the request was successful
     if response.status_code == 200:
-        # Parse the JSON response
         result = response.json()
         print("API Response:")
         print(json.dumps(result, indent=2, ensure_ascii=False))
